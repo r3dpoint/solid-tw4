@@ -1,0 +1,36 @@
+{
+  "name": "example-bare",
+  "type": "module",
+  "scripts": {
+    "check": "prettier . --check && npm run lint-check && npm run typecheck",
+    "format": "prettier . --write && npm run lint",
+    "dev": "vinxi dev",
+    "build": "vinxi build",
+    "lint-check": "eslint --ignore-pattern .gitignore --cache --cache-location ./node_modules/.cache/eslint .",
+    "lint": "eslint --fix --ignore-pattern .gitignore --cache --cache-location ./node_modules/.cache/eslint .",
+    "start": "vinxi start",
+    "typecheck": "tsc"
+  },
+  "dependencies": {
+    "@solidjs/start": "^1.0.6",
+    "clsx": "^2.1.1",
+    "tailwind-merge": "^2.5.2"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.10.0",
+    "@tailwindcss/postcss": "^4.0.0-alpha.24",
+    "eslint": "^9.10.0",
+    "eslint-plugin-solid": "^0.14.3",
+    "globals": "^15.9.0",
+    "postcss": "^8.4.47",
+    "prettier": "^3.3.3",
+    "prettier-plugin-tailwindcss": "^0.6.6",
+    "solid-js": "^1.8.18",
+    "tailwindcss": "^4.0.0-alpha.24",
+    "typescript-eslint": "^8.5.0",
+    "vinxi": "^0.4.1"
+  }
+}

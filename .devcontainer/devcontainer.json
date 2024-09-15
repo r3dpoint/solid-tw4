@@ -1,0 +1,48 @@
+{
+  "name": "forge-access",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu-24.04",
+  "features": {
+    "ghcr.io/devcontainers/features/common-utils:2": {
+      "configureZshAsDefaultShell": true
+    },
+    "ghcr.io/devcontainers/features/github-cli:1": {},
+    "ghcr.io/devcontainers/features/node:1": {
+      "version": "lts/iron"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.detectIndentation": true,
+        "editor.formatOnPaste": true,
+        "editor.formatOnSave": true,
+        "editor.formatOnType": true,
+        "editor.insertSpaces": true,
+        "editor.quickSuggestions": {
+          "strings": "on"
+        },
+        "editor.tabSize": 2,
+        "files.associations": {
+          "*.css": "tailwindcss"
+        },
+        "files.insertFinalNewline": true,
+        "git.autofetch": true,
+        "terminal.integrated.cursorStyle": "line",
+        "tailwindCSS.emmetCompletions": true,
+        "[shellscript]": {
+          "editor.defaultFormatter": "foxundermoon.shell-format"
+        }
+      },
+      "extensions": [
+        "bradlc.vscode-tailwindcss",
+        "davidanson.vscode-markdownlint",
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "foxundermoon.shell-format",
+        "ms-playwright.playwright",
+        "tamasfe.even-better-toml"
+      ]
+    }
+  }
+}
