@@ -65,15 +65,33 @@ function NavDrawer(props: { class: string; children: JSX.Element }) {
   );
 }
 
+function NavDrawerButton(props: { id: string }) {
+  return (
+    <>
+      <label for={props.id}>
+        <div class="h-button w-button flex items-center justify-center gap-8 px-[32px] py-[12px]">
+          <input type="checkbox" id={props.id} class="peer hidden" />
+          <Icon20OutlineMenuOpen class="peer-checked:hidden" />
+          <Icon20OutlineMenuClose class="hidden peer-checked:block" />
+        </div>
+      </label>
+    </>
+  );
+}
+
+function AppBarSm(props: { class?: string }) {
+  return (
+    <AppBarBox class={props.class}>
+      <NavDrawerButton id="navDrawerSm" />
+    </AppBarBox>
+  );
+}
+
 function AppFrameSm(props: { class?: string }) {
   return (
     <>
       <div class={props.class}>
-        <label for="navDrawerCompact" class="peer">
-          <input type="checkbox" id="navDrawerCompact" class="peer hidden" />
-          <Icon20OutlineMenuOpen class="peer-checked:hidden" />
-          <Icon20OutlineMenuClose class="hidden peer-checked:block" />
-        </label>
+        <AppBarSm class="peer" />
         <NavDrawer class="hidden peer-has-[:checked]:inline">
           <div>NavDrawer Sm</div>
         </NavDrawer>
@@ -82,15 +100,42 @@ function AppFrameSm(props: { class?: string }) {
   );
 }
 
+function AppBarBox(props: { class?: string; children: JSX.Element }) {
+  return (
+    <>
+      <div
+        class={cn(
+          props.class,
+          "bg-light-layout-background-strong-component",
+          "text-light-text-default",
+          "h-app-bar",
+          "border-light-layout-border-strong",
+          "flex",
+          "items-center",
+          "justify-between",
+          "self-stretch",
+          "border-b",
+        )}
+      >
+        {props.children}
+      </div>
+    </>
+  );
+}
+
+function AppBarMd(props: { class?: string }) {
+  return (
+    <AppBarBox class={props.class}>
+      <NavDrawerButton id="navDrawerMd" />
+    </AppBarBox>
+  );
+}
+
 function AppFrameMd(props: { class?: string }) {
   return (
     <>
       <div class={props.class}>
-        <label for="navDrawerMedium" class="peer">
-          <input type="checkbox" id="navDrawerMedium" class="peer hidden" />
-          <Icon20OutlineMenuOpen class="peer-checked:hidden" />
-          <Icon20OutlineMenuClose class="hidden peer-checked:block" />
-        </label>
+        <AppBarMd class="peer" />
         <NavDrawerMdWide class="peer-has-[:checked]:hidden" />
         <NavDrawerMdNarrow class="hidden peer-has-[:checked]:inline" />
       </div>
@@ -100,8 +145,8 @@ function AppFrameMd(props: { class?: string }) {
 
 function NavDrawerMdWide(props: { class: string }) {
   return (
-    <div class={cn(props.class, "h-full", "w-fg-[256px]")}>
-      <NavDrawer class="bg-fg-light-action-state-activated-primary">
+    <div class={cn(props.class)}>
+      <NavDrawer class="bg-brand-primary-300 w-2xl">
         <div>NavDrawer Md Wide</div>
       </NavDrawer>
     </div>
@@ -110,8 +155,8 @@ function NavDrawerMdWide(props: { class: string }) {
 
 function NavDrawerMdNarrow(props: { class: string }) {
   return (
-    <div class={cn(props.class, "h-full", "w-fg-104")}>
-      <NavDrawer class="bg-fg-light-action-state-activated-primary">
+    <div class={cn(props.class)}>
+      <NavDrawer class="bg-brand-primary-400 w-fit">
         <div>NavDrawer Md Narrow</div>
       </NavDrawer>
     </div>
@@ -119,14 +164,7 @@ function NavDrawerMdNarrow(props: { class: string }) {
 }
 export default function App() {
   return (
-    <main class="flex flex-col gap-24">
-      <div class="light">
-        <div class="bg-light-layout-background-strong-component text-light-text-default h-app-bar border-light-layout-border-strong flex items-center justify-between self-stretch border-b">
-          <div class="h-button w-button flex items-center justify-center gap-8 px-[32px] py-[12px]">
-            <Icon20OutlineMenuOpen />
-          </div>
-        </div>
-      </div>
+    <main>
       <AppFrame />
     </main>
   );
