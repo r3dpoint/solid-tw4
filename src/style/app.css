@@ -1,6 +1,19 @@
 @import "tailwindcss";
 @import "./typography.css";
 @config "../../tailwind.config";
+:root {
+  color-scheme: dark;
+}
+/* :root {
+  --color-neutrals-050: #f7f9fa;
+  --color-neutrals-900: #1e242a;
+  --color-light-text-reverse: var(--color-neutrals-050);
+  --color-dark-text-reverse: var(--color-neutrals-900);
+  --color-text-reverse: light-dark(
+    var(--color-light-text-reverse),
+    var(--color-dark-text-reverse)
+  );
+} */
 
 /* @variant dark
   (@media ((prefers-color-scheme: dark) and &: not(.light *)) or &: is(.dark *)); */
@@ -13,17 +26,33 @@
   --color-brand-primary-500: #f26722;
   --color-brand-primary-600: #d25c21;
   --color-brand-primary-700: #884529;
-  --color-neutrals-800: #333d46;
-  --color-neutrals-500: #7c8b9c;
-  --color-neutrals-300: #b5c0cc;
-  --color-neutrals-050: #f7f9fa;
   --color-neutrals-001: #ffffff;
+  --color-neutrals-100: #eceff3;
+  --color-neutrals-300: #b5c0cc;
+  --color-neutrals-500: #7c8b9c;
+  --color-neutrals-800: #333d46;
+  --color-neutrals-050: #f7f9fa;
+  --color-neutrals-900: #1e242a;
+  --color-neutrals-950: #10161d;
   --color-light-text-default: var(--color-neutrals-800);
-  --color-light-text-reverse: var(--color-neutrals-050);
   --color-light-layout-border-strong: var(--color-neutrals-300);
-  --color-light-layout-background-strong-component: var(--color-neutrals-001);
-  --color-dark-text-default: #d3dce2;
-  --color-dark-text-reverse: #1e242a;
+  --color-light-layout-background-strong: var(--color-neutrals-001);
+  --color-dark-layout-background-strong: var(--color-neutrals-950);
+  --color-dark-text-default: var(--color-neutrals-100);
+  --color-light-text-reverse: var(--color-neutrals-050);
+  --color-dark-text-reverse: var(--color-neutrals-900);
+  --color-text-default: light-dark(
+    var(--color-light-text-default),
+    var(--color-dark-text-default)
+  );
+  --color-text-reverse: light-dark(
+    var(--color-light-text-reverse),
+    var(--color-dark-text-reverse)
+  );
+  --color-layout-background-strong: light-dark(
+    var(--color-light-layout-background-strong),
+    var(--color-dark-layout-background-strong)
+  );
   --spacing-*: initial;
   --spacing-8: 8px;
   --spacing-24: 24px;
